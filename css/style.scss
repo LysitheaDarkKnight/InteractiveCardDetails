@@ -1,0 +1,262 @@
+@import 'functions';
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+// Colors
+:root{
+    --white-color: hsl(0, 0%, 100%);
+    --linear-gradient-color: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --light-grayish-violet-color: hsl(270, 3%, 87%);
+    --dark-grayish-violet-color: hsl(279, 6%, 55%);
+    --very-dark-violet-color: hsl(278, 68%, 11%);
+    --dark-violet-color: hsl(313, 62%, 19%);
+    --red-color: hsl(0, 100%, 66%);
+}
+
+// Fonts
+$spacegrotesk: 'Space Grotesk', sans-serif;
+
+body{
+  font-size: 18px;
+  font-family: $spacegrotesk;
+  position: relative;
+  background-image: url(../images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+label{
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    color: var(--very-dark-violet-color);
+}
+
+input{
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    border: var(--light-grayish-violet-color) 1px solid;
+    &:focus{
+        outline: var(--very-dark-violet-color) 1px solid;;
+    }
+}
+
+.btn{
+    background-color: var(--very-dark-violet-color);
+    cursor: pointer;
+    color: var(--white-color);
+    text-align: center;
+    text-decoration: none;
+    padding: 1.1rem 0;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.4rem;
+    box-shadow: 0 3px 6px rgba(94, 57, 153, 0.16), 0 3px 6px rgba(94,57,153,0.23);
+    transition: background-color 0.6s ease-in;
+    &:hover{
+        background-color: var(--dark-violet-color);
+    }
+}
+
+.success, .error{
+    font-size: 0.8rem;
+}
+
+.success{
+    color: #28a745;
+}
+
+.error{
+    color: #EF5350;
+}
+
+
+@keyframes slideInFromLeft{
+    0%{
+        transform: translateX(-170%);
+    }
+  
+    100%{
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromRight{
+    0%{
+        transform: translateX(170%);
+    }
+  
+    100%{
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInFromBottom{
+    0%{
+        transform: translateY(100%);
+    }
+  
+    100%{
+        transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromTop{
+    0%{
+        transform: translateY(-100%);
+    }
+  
+    100%{
+        transform: translateX(0);
+    }
+  }
+
+main{
+    padding: 13rem 8rem;
+    @include set-grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    .credit-card{
+        @include set-grid;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1.5rem;
+        letter-spacing: 0.2rem;
+        animation: slideInFromLeft 1s ease-in-out;
+
+        &__front, &__back{
+            display: block;
+            width: 447px;
+            background-repeat: no-repeat;
+        }
+        &__front{
+            background-image: url(../images/bg-card-front.png);
+            padding: 2rem;
+            .logo{
+                margin-bottom: 3.5rem;
+            }
+            h1,p{
+                color: var(--white-color);
+                font-weight: 500;
+            }
+            h1{
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            .name-date{
+                @include set-flex($justify-content: space-between);
+                
+            }
+        }
+        &__back{
+            background-image: url(../images/bg-card-back.png);
+            padding-top: 108px;
+            padding-bottom: 122px;
+            margin-left: 6rem;
+            p{
+                margin-left: 22rem;
+                color: var(--white-color);
+            }
+        }
+    }
+
+    form, .completed-state{
+        @include set-grid;
+        place-content: center;
+        animation: slideInFromRight 1s ease-in-out;
+        gap: 1rem;
+    }
+
+    form{
+
+        .input-control-column, .input-control-row{
+            @include set-flex;
+        }
+        .input-control-column{
+            flex-direction: column;
+            gap: 0.5rem
+        }
+
+        .input-control-row{
+            gap: 1.1rem;
+            .input-control-column{
+                .exp-date{
+                    @include set-flex;
+                    gap: 1rem;
+                    input{
+                        width: 4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .completed-state{
+        display: none;
+
+        h1{
+            font-weight: 500;
+        }
+
+        p{
+            color: var(--dark-grayish-violet-color);
+        }
+
+        img, p{
+            margin-bottom: 1.5rem;
+        }
+        img, h1, p{
+            justify-self: center;
+        }
+    }
+}
+
+@media(max-width: 1040px){
+
+    body{
+        background-image: url(../images/bg-main-mobile.png);
+    }
+    main{
+        
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 100vh;
+        padding: 2rem 1rem;
+        @include set-grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        gap: 2rem;
+        
+        .credit-card{
+            transform: scale(0.65);
+            position: relative;
+            animation: slideInFromTop 1s ease-in-out;
+            &__front, &__back{
+                position: absolute;
+                
+            }
+
+            &__front{
+                top: 80px;
+                left: -95px;
+                z-index: 1;
+            }
+
+            &__back{
+                left: -95px;
+                bottom: 23px;
+            }
+        }
+
+        form{
+            animation: slideInFromBottom 1s ease-in-out;
+        }
+    }
+}

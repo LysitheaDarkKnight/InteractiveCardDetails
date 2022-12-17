@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+:root {
+  --white-color: hsl(0, 0%, 100%);
+  --linear-gradient-color: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --light-grayish-violet-color: hsl(270, 3%, 87%);
+  --dark-grayish-violet-color: hsl(279, 6%, 55%);
+  --very-dark-violet-color: hsl(278, 68%, 11%);
+  --dark-violet-color: hsl(313, 62%, 19%);
+  --red-color: hsl(0, 100%, 66%);
+}
+
+body {
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  position: relative;
+  background-image: url(../images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  color: var(--very-dark-violet-color);
+}
+
+input {
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  border: var(--light-grayish-violet-color) 1px solid;
+}
+input:focus {
+  outline: var(--very-dark-violet-color) 1px solid;
+}
+
+.btn {
+  background-color: var(--very-dark-violet-color);
+  cursor: pointer;
+  color: var(--white-color);
+  text-align: center;
+  text-decoration: none;
+  padding: 1.1rem 0;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0.4rem;
+  box-shadow: 0 3px 6px rgba(94, 57, 153, 0.16), 0 3px 6px rgba(94, 57, 153, 0.23);
+  transition: background-color 0.6s ease-in;
+}
+.btn:hover {
+  background-color: var(--dark-violet-color);
+}
+
+.success, .error {
+  font-size: 0.8rem;
+}
+
+.success {
+  color: #28a745;
+}
+
+.error {
+  color: #EF5350;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-170%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(170%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+main {
+  padding: 13rem 8rem;
+  display: grid;
+  align-items: stretch;
+  justify-content: stretch;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+main .credit-card {
+  display: grid;
+  align-items: stretch;
+  justify-content: stretch;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  letter-spacing: 0.2rem;
+  animation: slideInFromLeft 1s ease-in-out;
+}
+main .credit-card__front, main .credit-card__back {
+  display: block;
+  width: 447px;
+  background-repeat: no-repeat;
+}
+main .credit-card__front {
+  background-image: url(../images/bg-card-front.png);
+  padding: 2rem;
+}
+main .credit-card__front .logo {
+  margin-bottom: 3.5rem;
+}
+main .credit-card__front h1, main .credit-card__front p {
+  color: var(--white-color);
+  font-weight: 500;
+}
+main .credit-card__front h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+main .credit-card__front .name-date {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+main .credit-card__back {
+  background-image: url(../images/bg-card-back.png);
+  padding-top: 108px;
+  padding-bottom: 122px;
+  margin-left: 6rem;
+}
+main .credit-card__back p {
+  margin-left: 22rem;
+  color: var(--white-color);
+}
+main form, main .completed-state {
+  display: grid;
+  align-items: stretch;
+  justify-content: stretch;
+  place-content: center;
+  animation: slideInFromRight 1s ease-in-out;
+  gap: 1rem;
+}
+main form .input-control-column, main form .input-control-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+}
+main form .input-control-column {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main form .input-control-row {
+  gap: 1.1rem;
+}
+main form .input-control-row .input-control-column .exp-date {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 1rem;
+}
+main form .input-control-row .input-control-column .exp-date input {
+  width: 4rem;
+}
+main .completed-state {
+  display: none;
+}
+main .completed-state h1 {
+  font-weight: 500;
+}
+main .completed-state p {
+  color: var(--dark-grayish-violet-color);
+}
+main .completed-state img, main .completed-state p {
+  margin-bottom: 1.5rem;
+}
+main .completed-state img, main .completed-state h1, main .completed-state p {
+  justify-self: center;
+}
+
+@media (max-width: 1040px) {
+  body {
+    background-image: url(../images/bg-main-mobile.png);
+  }
+  main {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    padding: 2rem 1rem;
+    display: grid;
+    align-items: stretch;
+    justify-content: stretch;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    gap: 2rem;
+  }
+  main .credit-card {
+    transform: scale(0.65);
+    position: relative;
+    animation: slideInFromTop 1s ease-in-out;
+  }
+  main .credit-card__front, main .credit-card__back {
+    position: absolute;
+  }
+  main .credit-card__front {
+    top: 80px;
+    left: -95px;
+    z-index: 1;
+  }
+  main .credit-card__back {
+    left: -95px;
+    bottom: 23px;
+  }
+  main form {
+    animation: slideInFromBottom 1s ease-in-out;
+  }
+}/*# sourceMappingURL=style.css.map */
