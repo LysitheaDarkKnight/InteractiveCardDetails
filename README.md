@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://your-solution-url.com)
-- Live Site URL: (https://lysitheadarkknight.github.io/FourCardFeatureSectionMaster/)
+- Solution URL: (https://www.frontendmentor.io/solutions/interactive-card-details-form-Q25TQl8vMk)
+- Live Site URL: (https://lysitheadarkknight.github.io/InteractiveCardDetails/)
 
 ## My process
 
